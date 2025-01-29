@@ -3,7 +3,7 @@ using UnityEngine;
 public class ShakeBuilding : MonoBehaviour
 {
     public float intensity = 0.2f; // Deprem þiddeti
-    public float frequency = 2f;  // Deprem hýzý
+    public float frequency = 1f;  // Deprem hýzý
     public float duration = 10f;  // Deprem süresi
 
     private Vector3 originalPosition; // Orijinal pozisyon

@@ -13,11 +13,12 @@ public class QuestionManager : MonoBehaviour
     public TMP_Text[] answerTexts;
     public Button[] answerButtons;
     public GameObject quitApp;
-
-
+    public Button quitButton; // QuitApp butonu referansý
 
     void Start()
     {
+        quitApp.SetActive(false); // QuitApp baþlangýçta kapalý
+        quitButton.onClick.AddListener(StartEarthquake); // QuitApp butonuna event ekleniyor
         LoadQuestion();
     }
 
@@ -83,7 +84,13 @@ public class QuestionManager : MonoBehaviour
             tmptext.gameObject.SetActive(false);
         }
 
-        EarthquakeManager.canActive = true; // Depremi baþlat
-        quitApp.SetActive(true);
+        quitApp.SetActive(true); // QuitApp butonunu aktif et
+    }
+
+    // QuitApp butonuna basýldýðýnda deprem simülasyonunu baþlatýr
+    void StartEarthquake()
+    {
+        EarthquakeManager.canActive = true;
+        Debug.Log("Deprem simülasyonu baþlatýldý!");
     }
 }
