@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\fcaka\\Downloads\\Create-with-VR_2022LTS\\Create-with-VR_2022LTS\\VR\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{780F136A-D83F-6325-96D9-2AB507E28714}|Assembly-CSharp.csproj|c:\\users\\fcaka\\downloads\\create-with-vr_2022lts\\create-with-vr_2022lts\\vr\\assets\\scripts\\earthquakemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{780F136A-D83F-6325-96D9-2AB507E28714}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\earthquakemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{780F136A-D83F-6325-96D9-2AB507E28714}|Assembly-CSharp.csproj|c:\\users\\fcaka\\downloads\\create-with-vr_2022lts\\create-with-vr_2022lts\\vr\\assets\\scripts\\shakebuilding.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{780F136A-D83F-6325-96D9-2AB507E28714}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\shakebuilding.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ShakeBuilding.cs",
+              "DocumentMoniker": "C:\\Users\\fcaka\\Downloads\\Create-with-VR_2022LTS\\Create-with-VR_2022LTS\\VR\\Assets\\Scripts\\ShakeBuilding.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ShakeBuilding.cs",
+              "ToolTip": "C:\\Users\\fcaka\\Downloads\\Create-with-VR_2022LTS\\Create-with-VR_2022LTS\\VR\\Assets\\Scripts\\ShakeBuilding.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ShakeBuilding.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-01T21:08:38.275Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EarthquakeManager.cs",
+              "DocumentMoniker": "C:\\Users\\fcaka\\Downloads\\Create-with-VR_2022LTS\\Create-with-VR_2022LTS\\VR\\Assets\\Scripts\\EarthquakeManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\EarthquakeManager.cs",
+              "ToolTip": "C:\\Users\\fcaka\\Downloads\\Create-with-VR_2022LTS\\Create-with-VR_2022LTS\\VR\\Assets\\Scripts\\EarthquakeManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\EarthquakeManager.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAG0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-01T19:33:53.681Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
