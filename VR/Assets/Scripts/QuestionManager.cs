@@ -7,18 +7,20 @@ public class QuestionManager : MonoBehaviour
     [Header("Soru ve Cevaplar")]
     public Question[] questions;
     private int currentQuestionIndex = 0;
+    private int correctAnswers = 0; // Doðru cevaplanan soru sayýsý
 
     [Header("UI Öðeleri")]
     public TMP_Text questionText;
     public TMP_Text[] answerTexts;
     public Button[] answerButtons;
     public GameObject quitApp;
-    public Button quitButton; // QuitApp butonu referansý
+    public Button quitButton;
+    public TMP_Text scoreText; // Doðru cevap sayýsýný gösterecek UI öðesi
 
     void Start()
     {
-        quitApp.SetActive(false); // QuitApp baþlangýçta kapalý
-        quitButton.onClick.AddListener(StartEarthquake); // QuitApp butonuna event ekleniyor
+        quitApp.SetActive(false);
+        UpdateScoreUI(); // Skor UI'yi baþlat
         LoadQuestion();
     }
 
@@ -29,7 +31,6 @@ public class QuestionManager : MonoBehaviour
             Question currentQuestion = questions[currentQuestionIndex];
             questionText.text = currentQuestion.questionText;
 
-            // Cevap metinlerini doldur
             for (int i = 0; i < answerTexts.Length; i++)
             {
                 if (i < currentQuestion.answers.Length)
@@ -39,7 +40,6 @@ public class QuestionManager : MonoBehaviour
                 }
             }
 
-            // Butonlarý güncelle
             for (int i = 0; i < answerButtons.Length; i++)
             {
                 if (i < currentQuestion.answers.Length)
@@ -62,12 +62,14 @@ public class QuestionManager : MonoBehaviour
         if (selectedAnswerIndex == questions[currentQuestionIndex].correctAnswerIndex)
         {
             Debug.Log("Doðru Cevap!");
+            correctAnswers++; // Doðru cevap sayýsýný artýr
         }
         else
         {
             Debug.Log("Yanlýþ Cevap.");
         }
 
+        UpdateScoreUI(); // Skor ekranýný güncelle
         currentQuestionIndex++;
         LoadQuestion();
     }
@@ -84,13 +86,21 @@ public class QuestionManager : MonoBehaviour
             tmptext.gameObject.SetActive(false);
         }
 
-        quitApp.SetActive(true); // QuitApp butonunu aktif et
+        quitApp.SetActive(true);
+
+        // Butona sadece quiz tamamlandýktan sonra Listener ekleniyor
+        quitButton.onClick.RemoveAllListeners();
+        quitButton.onClick.AddListener(StartEarthquake);
     }
 
-    // QuitApp butonuna basýldýðýnda deprem simülasyonunu baþlatýr
     void StartEarthquake()
     {
         EarthquakeManager.canActive = true;
         Debug.Log("Deprem simülasyonu baþlatýldý!");
+    }
+
+    void UpdateScoreUI()
+    {
+        scoreText.text = "D: " + correctAnswers;
     }
 }

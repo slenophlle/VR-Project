@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class EarthquakeManager : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class EarthquakeManager : MonoBehaviour
     public float[] quakeIntensities = { 0.1f, 0.2f, 0.3f };
     public float[] quakeFrequencies = { 3f, 3f, 3f };
     public float[] quakeDurations = { 12f, 13f, 6f };
-    public Vector2 earthquakeIntervalRange = new Vector2(15f, 25f); // Bekleme süresi aralýðý
+    public Vector2 earthquakeIntervalRange = new Vector2(15f, 25f);
 
     private float earthquakeInterval;
     private int currentStage = 0;
@@ -25,11 +26,39 @@ public class EarthquakeManager : MonoBehaviour
     public GameObject restartBTN;
     public TMP_Text countdownText;
     public TMP_Text RestartText;
+
+    [Header("Objects to Change")]
+    public GameObject[] solidObjects;  // Saðlam objeler (normal bina)
+    public GameObject[] brokenObjects; // Kýrýk objeler (hasarlý bina)
+
+    private Vector3[] solidObjectPositions;  // Saðlam objelerin baþlangýç konumlarý
+    private GameObject[] instantiatedBrokenObjects;  // Kýrýk objeler için instantiate edilmiþ nesneler
+
+    [System.Serializable]
+    public class ObjectPair
+    {
+        public GameObject solidObject;
+        public GameObject brokenObject;
+    }
+
+    public ObjectPair[] objectPairs;  // Saðlam ve kýrýk objelerin eþleþtirilmiþ listesi
+
     void Start()
     {
-        // Ýlk deprem aralýðýný rastgele belirle
         earthquakeInterval = Random.Range(earthquakeIntervalRange.x, earthquakeIntervalRange.y);
+
+        // Saðlam objelerin baþlangýç konumlarýný kaydet
+        solidObjectPositions = new Vector3[solidObjects.Length];
+        for (int i = 0; i < solidObjects.Length; i++)
+        {
+            if (solidObjects[i] != null)
+                solidObjectPositions[i] = solidObjects[i].transform.position;
+        }
+
+        // Kýrýk objeleri tutacak diziyi baþlat
+        instantiatedBrokenObjects = new GameObject[objectPairs.Length];
     }
+
 
     void Update()
     {
@@ -40,8 +69,6 @@ public class EarthquakeManager : MonoBehaviour
         if (timer >= earthquakeInterval && currentStage < quakeIntensities.Length)
         {
             timer = 0f;
-
-            // Yeni deprem aralýðýný rastgele belirle
             earthquakeInterval = Random.Range(earthquakeIntervalRange.x, earthquakeIntervalRange.y);
 
             float intensity = quakeIntensities[currentStage];
@@ -56,9 +83,14 @@ public class EarthquakeManager : MonoBehaviour
             }
 
             Debug.Log($"Deprem Aþamasý {currentStage + 1} baþladý! Þiddet: {intensity}, Frekans: {frequency}, Süre: {duration}, Bekleme Süresi: {earthquakeInterval} saniye");
-            currentStage++;
 
-            // Deprem tamamlandýktan sonra bir sonraki aþamaya geçmek için bekleme baþlat
+            // Depremin ikinci aþamasýnda binalarý kýr
+            if (currentStage == 1)
+            {
+                ChangeBuildings();
+            }
+
+            currentStage++;
             StartCoroutine(StartNextStageAfterDelay(duration));
         }
 
@@ -68,21 +100,33 @@ public class EarthquakeManager : MonoBehaviour
         }
     }
 
+    void ChangeBuildings()
+    {
+        Debug.Log("Binalar kýrýldý!");
+        for (int i = 0; i < objectPairs.Length; i++)
+        {
+            if (objectPairs[i].solidObject != null)
+            {
+                objectPairs[i].solidObject.SetActive(false);  // Saðlam objeyi devre dýþý býrak
+            }
+
+            if (objectPairs[i].brokenObject != null)
+            {
+                // Kýrýk objeyi instantiate et ve sahneye yerleþtir
+                instantiatedBrokenObjects[i] = Instantiate(objectPairs[i].brokenObject, solidObjectPositions[i], Quaternion.identity);
+
+                // Objeyi aktif yap
+                instantiatedBrokenObjects[i].SetActive(true);  // Bu satýr, objeyi sahnede aktif yapacak
+            }
+        }
+    }
+
+
     void EndEarthquake()
     {
-        Debug.Log("Deprem sona erdi!");  // Bu satýrla doðru yerden çaðrýldýðýný kontrol et
+        Debug.Log("Deprem sona erdi!");
         canActive = false;
-        endPanel.SetActive(true);  // Paneli aktif et
-
-        // Debug ile endPanel'in aktif olup olmadýðýný kontrol et
-        if (endPanel.activeSelf)
-        {
-            Debug.Log("End Panel aktif!");
-        }
-        else
-        {
-            Debug.Log("End Panel aktif deðil!");
-        }
+        endPanel.SetActive(true);
     }
 
     public void RestartEarthquake()
@@ -90,7 +134,7 @@ public class EarthquakeManager : MonoBehaviour
         restartBTN.SetActive(false);
         countdownText.gameObject.SetActive(true);
         RestartText.gameObject.SetActive(false);
-        StartCoroutine(RestartAfterCountdown(5f)); // 5 saniyelik geri sayým baþlat
+        StartCoroutine(RestartAfterCountdown(5f));
     }
 
     private IEnumerator RestartAfterCountdown(float countdown)
@@ -108,20 +152,18 @@ public class EarthquakeManager : MonoBehaviour
         countdownText.text = "Deprem baþlýyor!";
         yield return new WaitForSeconds(1f);
 
-        Debug.Log("Deprem tekrar baþladý!");
-        currentStage = 0;
-        timer = 0f;
+        Debug.Log("Sahne yeniden baþlatýlýyor...");
+        ResetBuildings();
+    }
 
-        // Yeni deprem aralýðýný rastgele belirle
-        earthquakeInterval = Random.Range(earthquakeIntervalRange.x, earthquakeIntervalRange.y);
-
-        canActive = true;
-        endPanel.SetActive(false); // Paneli tekrar kapat
+    void ResetBuildings()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     private IEnumerator StartNextStageAfterDelay(float delay)
     {
-        yield return new WaitForSeconds(delay); // Deprem süresi kadar bekle
-        timer = 0f; // Bekleme süresi bu noktadan itibaren baþlasýn
+        yield return new WaitForSeconds(delay);
+        timer = 0f;
     }
 }

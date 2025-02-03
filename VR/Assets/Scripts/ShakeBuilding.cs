@@ -38,7 +38,8 @@ public class ShakeBuilding : MonoBehaviour
                 // Daha doðal hareket için 3 farklý Perlin Noise deðeri hesaplayalým
                 float randomX = (Mathf.PerlinNoise(timeOffset, 0.5f) - 0.5f) * intensity;
                 float randomZ = (Mathf.PerlinNoise(0.5f, timeOffset) - 0.5f) * intensity;
-                float randomY = (Mathf.PerlinNoise(timeOffset * 0.5f, 0.2f) - 0.5f) * intensity * 0.1f;
+                float randomY = (Mathf.PerlinNoise(timeOffset * 0.5f, 0.2f) - 0.5f) * intensity * 0.3f;
+
 
                 Vector3 shakeOffset = new Vector3(randomX, randomY, randomZ);
                 buildingRb.MovePosition(originalPosition + shakeOffset);
