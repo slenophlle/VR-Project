@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class EarthquakeManager : MonoBehaviour
 {
@@ -30,8 +31,15 @@ public class EarthquakeManager : MonoBehaviour
     [Header("Objects to Change")]
     public GameObject[] solidObjects;  // Saðlam objeler (normal bina)
     public GameObject[] brokenObjects; // Kýrýk objeler (hasarlý bina)
+    public GameObject kýrýlacakduvar; 
+    public GameObject kýrýlacakduvar1;
+    public GameObject kýrýlacakçatý;  
+    public GameObject kýrýkduvar; 
+    public GameObject kýrýkduvar1;
+    public GameObject kýrýkçatý; 
 
-    private Vector3[] solidObjectPositions;  // Saðlam objelerin baþlangýç konumlarý
+
+    private (Vector3 position, Quaternion rotation)[] solidObjectTransforms;  // Saðlam objelerin baþlangýç konumlarý ve rotasyonlarý
     private GameObject[] instantiatedBrokenObjects;  // Kýrýk objeler için instantiate edilmiþ nesneler
 
     [System.Serializable]
@@ -47,18 +55,22 @@ public class EarthquakeManager : MonoBehaviour
     {
         earthquakeInterval = Random.Range(earthquakeIntervalRange.x, earthquakeIntervalRange.y);
 
-        // Saðlam objelerin baþlangýç konumlarýný kaydet
-        solidObjectPositions = new Vector3[solidObjects.Length];
+        // Saðlam objelerin baþlangýç konumlarýný ve rotasyonlarýný kaydet
+        solidObjectTransforms = new (Vector3, Quaternion)[solidObjects.Length];
+
         for (int i = 0; i < solidObjects.Length; i++)
         {
             if (solidObjects[i] != null)
-                solidObjectPositions[i] = solidObjects[i].transform.position;
+            {
+                solidObjectTransforms[i] = (solidObjects[i].transform.position,
+                                            solidObjects[i].transform.rotation);
+            }
         }
+        
 
         // Kýrýk objeleri tutacak diziyi baþlat
         instantiatedBrokenObjects = new GameObject[objectPairs.Length];
     }
-
 
     void Update()
     {
@@ -88,6 +100,13 @@ public class EarthquakeManager : MonoBehaviour
             if (currentStage == 1)
             {
                 ChangeBuildings();
+                kýrýlacakduvar.SetActive(false);
+                kýrýlacakduvar1.SetActive(false);
+                kýrýlacakçatý.SetActive(false);
+                kýrýkçatý.SetActive(true);
+                kýrýkduvar1.SetActive(true);
+                kýrýkduvar.SetActive(true);
+
             }
 
             currentStage++;
@@ -113,14 +132,15 @@ public class EarthquakeManager : MonoBehaviour
             if (objectPairs[i].brokenObject != null)
             {
                 // Kýrýk objeyi instantiate et ve sahneye yerleþtir
-                instantiatedBrokenObjects[i] = Instantiate(objectPairs[i].brokenObject, solidObjectPositions[i], Quaternion.identity);
+                instantiatedBrokenObjects[i] = Instantiate(objectPairs[i].brokenObject,
+                                                           solidObjectTransforms[i].position,
+                                                           solidObjectTransforms[i].rotation);
 
                 // Objeyi aktif yap
-                instantiatedBrokenObjects[i].SetActive(true);  // Bu satýr, objeyi sahnede aktif yapacak
+                instantiatedBrokenObjects[i].SetActive(true);
             }
         }
     }
-
 
     void EndEarthquake()
     {

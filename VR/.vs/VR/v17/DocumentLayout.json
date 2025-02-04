@@ -3,20 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\fcaka\\Desktop\\VR-ProjectGitHub\\VR-Project\\VR\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{780F136A-D83F-6325-96D9-2AB507E28714}|Assembly-CSharp.csproj|C:\\Users\\fcaka\\Desktop\\VR-ProjectGitHub\\VR-Project\\VR\\assets\\scripts\\earthquakemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{780F136A-D83F-6325-96D9-2AB507E28714}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\earthquakemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\fcaka\\Desktop\\VR-ProjectGitHub\\VR-Project\\VR\\assets\\scripts\\fracturableobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\scripts\\fracturableobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{780F136A-D83F-6325-96D9-2AB507E28714}|Assembly-CSharp.csproj|C:\\Users\\fcaka\\Desktop\\VR-ProjectGitHub\\VR-Project\\VR\\assets\\yetamgiris\\objectmovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{780F136A-D83F-6325-96D9-2AB507E28714}|Assembly-CSharp.csproj|solutionrelative:assets\\yetamgiris\\objectmovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{780F136A-D83F-6325-96D9-2AB507E28714}|Assembly-CSharp.csproj|C:\\Users\\fcaka\\Desktop\\VR-ProjectGitHub\\VR-Project\\VR\\assets\\scripts\\fracturepropmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{780F136A-D83F-6325-96D9-2AB507E28714}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\fracturepropmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{780F136A-D83F-6325-96D9-2AB507E28714}|Assembly-CSharp.csproj|C:\\Users\\fcaka\\Desktop\\VR-ProjectGitHub\\VR-Project\\VR\\assets\\scripts\\earthquakemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{780F136A-D83F-6325-96D9-2AB507E28714}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\earthquakemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{780F136A-D83F-6325-96D9-2AB507E28714}|Assembly-CSharp.csproj|C:\\Users\\fcaka\\Desktop\\VR-ProjectGitHub\\VR-Project\\VR\\assets\\scripts\\shakebuilding.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -33,6 +29,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{780F136A-D83F-6325-96D9-2AB507E28714}|Assembly-CSharp.csproj|C:\\Users\\fcaka\\Desktop\\VR-ProjectGitHub\\VR-Project\\VR\\assets\\scripts\\question.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{780F136A-D83F-6325-96D9-2AB507E28714}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\question.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\fcaka\\Desktop\\VR-ProjectGitHub\\VR-Project\\VR\\Assets\\Scripts\\FracturePropManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\FracturePropManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,11 +42,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ObjectMovement.cs",
               "DocumentMoniker": "C:\\Users\\fcaka\\Desktop\\VR-ProjectGitHub\\VR-Project\\VR\\Assets\\YetamGiris\\ObjectMovement.cs",
               "RelativeDocumentMoniker": "Assets\\YetamGiris\\ObjectMovement.cs",
@@ -58,7 +58,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "FracturableObject.cs",
               "DocumentMoniker": "C:\\Users\\fcaka\\Desktop\\VR-ProjectGitHub\\VR-Project\\VR\\Assets\\Scripts\\FracturableObject.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\FracturableObject.cs",
@@ -66,12 +66,11 @@
               "RelativeToolTip": "Assets\\Scripts\\FracturableObject.cs",
               "ViewState": "AQIAABsAAAAAAAAAAAAqwDwAAABRAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-02T19:38:51.007Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-02T19:38:51.007Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "LookAtUser.cs",
               "DocumentMoniker": "C:\\Users\\fcaka\\Desktop\\VR-ProjectGitHub\\VR-Project\\VR\\Assets\\Scripts\\LookAtUser.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\LookAtUser.cs",
@@ -83,7 +82,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "QuestionManager.cs",
               "DocumentMoniker": "C:\\Users\\fcaka\\Desktop\\VR-ProjectGitHub\\VR-Project\\VR\\Assets\\Scripts\\QuestionManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\QuestionManager.cs",
@@ -95,7 +94,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "Question.cs",
               "DocumentMoniker": "C:\\Users\\fcaka\\Desktop\\VR-ProjectGitHub\\VR-Project\\VR\\Assets\\Scripts\\Question.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Question.cs",
@@ -107,7 +106,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "FracturePropManager.cs",
               "DocumentMoniker": "C:\\Users\\fcaka\\Desktop\\VR-ProjectGitHub\\VR-Project\\VR\\Assets\\Scripts\\FracturePropManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\FracturePropManager.cs",
@@ -119,7 +118,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "ShakeBuilding.cs",
               "DocumentMoniker": "C:\\Users\\fcaka\\Desktop\\VR-ProjectGitHub\\VR-Project\\VR\\Assets\\Scripts\\ShakeBuilding.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\ShakeBuilding.cs",
@@ -131,15 +130,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "EarthquakeManager.cs",
               "DocumentMoniker": "C:\\Users\\fcaka\\Desktop\\VR-ProjectGitHub\\VR-Project\\VR\\Assets\\Scripts\\EarthquakeManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\EarthquakeManager.cs",
               "ToolTip": "C:\\Users\\fcaka\\Desktop\\VR-ProjectGitHub\\VR-Project\\VR\\Assets\\Scripts\\EarthquakeManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\EarthquakeManager.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAADwAAAAOAAAA",
+              "ViewState": "AQIAAGUAAAAAAAAAAAAAAGUAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-01T19:33:53.681Z"
+              "WhenOpened": "2025-02-01T19:33:53.681Z",
+              "EditorCaption": ""
             }
           ]
         }
