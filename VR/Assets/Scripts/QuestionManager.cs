@@ -22,6 +22,7 @@ public class QuestionManager : MonoBehaviour
         quitApp.SetActive(false);
         UpdateScoreUI(); // Skor UI'yi baþlat
         LoadQuestion();
+        scoreText.gameObject.SetActive(false);
     }
 
     void LoadQuestion()
@@ -61,14 +62,10 @@ public class QuestionManager : MonoBehaviour
     {
         if (selectedAnswerIndex == questions[currentQuestionIndex].correctAnswerIndex)
         {
-            Debug.Log("Doðru Cevap!");
-            correctAnswers++; // Doðru cevap sayýsýný artýr
-        }
-        else
-        {
-            Debug.Log("Yanlýþ Cevap.");
-        }
 
+            correctAnswers++; // Doðru cevap sayýsýný artýr
+            scoreText.text = correctAnswers + " Tane Soruyu Doðru Ýþaretlediniz!"  ;
+        }
         UpdateScoreUI(); // Skor ekranýný güncelle
         currentQuestionIndex++;
         LoadQuestion();
@@ -85,7 +82,7 @@ public class QuestionManager : MonoBehaviour
         {
             tmptext.gameObject.SetActive(false);
         }
-
+        scoreText.gameObject.SetActive(true);
         quitApp.SetActive(true);
 
         // Butona sadece quiz tamamlandýktan sonra Listener ekleniyor
